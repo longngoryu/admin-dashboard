@@ -4,8 +4,9 @@ import "flatpickr/dist/flatpickr.min.css";
 import "@/css/satoshi.css";
 import "@/css/style.css";
 import React, { useEffect, useState } from "react";
-import Loader from "@/components/common/Loader";
-import useColorMode from "@/hooks/useColorMode";
+import { Loader } from "@/components";
+import { useColorMode } from "@/hooks";
+import useAuth from "@/stores/useAuth";
 
 export default function RootLayout({
   children,
@@ -15,6 +16,7 @@ export default function RootLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [loading, setLoading] = useState<boolean>(true);
   useColorMode();
+  const { user } = useAuth();
 
   // const pathname = usePathname();
 

@@ -1,3 +1,4 @@
+"use client";
 import { ApexOptions } from "apexcharts";
 import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
@@ -49,7 +50,7 @@ const options: ApexOptions = {
   ],
 };
 
-const ChartThree: React.FC = () => {
+export const ChartThree: React.FC = () => {
   const [state, setState] = useState<ChartThreeState>({
     series: [65, 34, 12, 56],
   });
@@ -159,5 +160,3 @@ const ChartThree: React.FC = () => {
     </div>
   );
 };
-
-export default ChartThree;

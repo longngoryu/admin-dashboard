@@ -1,3 +1,4 @@
+"use client";
 import { ApexOptions } from "apexcharts";
 import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
@@ -122,7 +123,7 @@ interface ChartOneState {
   }[];
 }
 
-const ChartOne: React.FC = () => {
+export const ChartOne: React.FC = () => {
   const [state, setState] = useState<ChartOneState>({
     series: [
       {
@@ -196,5 +197,3 @@ const ChartOne: React.FC = () => {
     </div>
   );
 };
-
-export default ChartOne;

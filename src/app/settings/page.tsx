@@ -1,12 +1,10 @@
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import Image from "next/image";
 import { Metadata } from "next";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import Image from "next/image";
+import { DefaultLayout, Breadcrumb } from "@/components";
+import { PROJECT_NAME } from "@/constants/consts";
 
 export const metadata: Metadata = {
-  title: "Next.js Settings | TailAdmin - Next.js Dashboard Template",
-  description:
-    "This is Next.js Settings page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
+  title: `${PROJECT_NAME} - Settings`,
 };
 
 const Settings = () => {

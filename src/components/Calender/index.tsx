@@ -1,6 +1,6 @@
-import Breadcrumb from "../Breadcrumbs/Breadcrumb";
+import { Breadcrumb } from "../Breadcrumbs/Breadcrumb";
 
-const Calendar = () => {
+export const Calendar = () => {
   return (
     <div className="mx-auto max-w-7xl">
       <Breadcrumb pageName="Calendar" />
@@ -269,5 +269,3 @@ const Calendar = () => {
     </div>
   );
 };
-
-export default Calendar;

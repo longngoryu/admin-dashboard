@@ -1,3 +1,4 @@
+"use client";
 import { ApexOptions } from "apexcharts";
 import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
@@ -69,7 +70,7 @@ interface ChartTwoState {
   }[];
 }
 
-const ChartTwo: React.FC = () => {
+export const ChartTwo: React.FC = () => {
   const [state, setState] = useState<ChartTwoState>({
     series: [
       {
@@ -150,5 +151,3 @@ const ChartTwo: React.FC = () => {
     </div>
   );
 };
-
-export default ChartTwo;

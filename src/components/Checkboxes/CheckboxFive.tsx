@@ -1,6 +1,7 @@
+"use client";
 import { useState } from "react";
 
-const CheckboxFive = () => {
+export const CheckboxFive = () => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   return (
@@ -31,5 +32,3 @@ const CheckboxFive = () => {
     </div>
   );
 };
-
-export default CheckboxFive;

@@ -1,20 +1,16 @@
 import React from "react";
-import FormElements from "@/components/FormElements";
 import { Metadata } from "next";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import { DefaultLayout, FormElements } from "@/components";
+import { PROJECT_NAME } from "@/constants/consts";
 
 export const metadata: Metadata = {
-  title: "Next.js Form Elements | TailAdmin - Next.js Dashboard Template",
-  description:
-    "This is Next.js Form Elements page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
+  title: `${PROJECT_NAME} - Form Elements`,
 };
 
-const FormElementsPage = () => {
+export default function FormElementsPage() {
   return (
     <DefaultLayout>
       <FormElements />
     </DefaultLayout>
   );
-};
-
-export default FormElementsPage;
+}
