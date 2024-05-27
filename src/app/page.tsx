@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  if (true) redirect("/signin");
+  // if (true) redirect("/signin");
   return (
     <DefaultLayout>
       <ECommerce />

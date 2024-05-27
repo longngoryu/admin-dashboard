@@ -1,4 +1,4 @@
-export * from "./Dashboard/E-commerce";
+export * from "./Dashboard/Dashboard";
 export * from "./Layouts/DefaultLayout";
 export * from "./Breadcrumbs/Breadcrumb";
 export * from "./common/Loader";
