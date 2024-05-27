@@ -1,7 +1,8 @@
 import React from "react";
 import { Metadata } from "next";
-import { DefaultLayout, FormElements } from "@/components";
 import { PROJECT_NAME } from "@/constants/consts";
+import { DefaultLayout } from "@/components";
+import { FormElements } from "@/components/FormElements";
 
 export const metadata: Metadata = {
   title: `${PROJECT_NAME} - Form Elements`,

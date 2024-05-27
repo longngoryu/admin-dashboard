@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SwitcherOne = () => {
+export function SwitcherOne() {
   const [enabled, setEnabled] = useState<boolean>(false);
 
   return (
@@ -28,6 +28,4 @@ const SwitcherOne = () => {
       </label>
     </div>
   );
-};
-
-export default SwitcherOne;
+}

@@ -1,7 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 
-export const SelectGroupOne: React.FC = () => {
+export function SelectGroupOne() {
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [isOptionSelected, setIsOptionSelected] = useState<boolean>(false);
 
@@ -63,4 +63,4 @@ export const SelectGroupOne: React.FC = () => {
       </div>
     </div>
   );
-};
+}

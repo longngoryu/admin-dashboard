@@ -1,8 +1,9 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const DropdownUser = () => {
+export function DropdownUser() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef<any>(null);
@@ -185,6 +186,4 @@ const DropdownUser = () => {
       {/* <!-- Dropdown End --> */}
     </div>
   );
-};
-
-export default DropdownUser;
+}

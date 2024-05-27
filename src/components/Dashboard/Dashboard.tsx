@@ -1,10 +1,10 @@
 "use client";
-import React from "react";
+import { CardDataStats } from "../CardDataStats";
 import ChatCard from "../Chat/ChatCard";
-import CardDataStats from "../CardDataStats";
+
 import { TableOne } from "@/components/Tables";
 
-export const ECommerce: React.FC = () => {
+export function Dashboard() {
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
@@ -102,4 +102,4 @@ export const ECommerce: React.FC = () => {
       </div>
     </>
   );
-};
+}

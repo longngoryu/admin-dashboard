@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: `${PROJECT_NAME} - Alerts`,
 };
 
-const Alerts = () => {
+export default function Alerts() {
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Alerts" />
@@ -99,6 +99,4 @@ const Alerts = () => {
       </div>
     </DefaultLayout>
   );
-};
-
-export default Alerts;
+}

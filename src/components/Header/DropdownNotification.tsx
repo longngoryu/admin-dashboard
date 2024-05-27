@@ -1,7 +1,8 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-const DropdownNotification = () => {
+export function DropdownNotification() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [notifying, setNotifying] = useState(true);
 
@@ -147,6 +148,4 @@ const DropdownNotification = () => {
       </div>
     </li>
   );
-};
-
-export default DropdownNotification;
+}

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-export const DropdownDefault = () => {
+export function DropdownDefault() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef<any>(null);
@@ -124,4 +124,4 @@ export const DropdownDefault = () => {
       </div>
     </div>
   );
-};
+}

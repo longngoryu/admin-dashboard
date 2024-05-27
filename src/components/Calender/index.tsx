@@ -1,6 +1,6 @@
 import { Breadcrumb } from "../Breadcrumbs/Breadcrumb";
 
-export const Calendar = () => {
+export function Calendar() {
   return (
     <div className="mx-auto max-w-7xl">
       <Breadcrumb pageName="Calendar" />
@@ -268,4 +268,4 @@ export const Calendar = () => {
       {/* <!-- ====== Calendar Section End ====== --> */}
     </div>
   );
-};
+}

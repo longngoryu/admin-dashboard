@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 interface CardDataStatsProps {
   title: string;
@@ -9,14 +9,14 @@ interface CardDataStatsProps {
   children: ReactNode;
 }
 
-const CardDataStats: React.FC<CardDataStatsProps> = ({
+export function CardDataStats({
   title,
   total,
   rate,
   levelUp,
   levelDown,
   children,
-}) => {
+}: CardDataStatsProps) {
   return (
     <div className="rounded-sm border border-stroke bg-white px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
@@ -72,6 +72,4 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
       </div>
     </div>
   );
-};
-
-export default CardDataStats;
+}

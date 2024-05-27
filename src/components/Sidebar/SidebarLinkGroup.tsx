@@ -6,10 +6,10 @@ interface SidebarLinkGroupProps {
   activeCondition: boolean;
 }
 
-const SidebarLinkGroup = ({
+export function SidebarLinkGroup({
   children,
   activeCondition,
-}: SidebarLinkGroupProps) => {
+}: SidebarLinkGroupProps) {
   const [open, setOpen] = useState<boolean>(activeCondition);
 
   const handleClick = () => {
@@ -17,6 +17,4 @@ const SidebarLinkGroup = ({
   };
 
   return <li>{children(handleClick, open)}</li>;
-};
-
-export default SidebarLinkGroup;
+}

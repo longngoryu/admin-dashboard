@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: `${PROJECT_NAME} - Settings`,
 };
 
-const Settings = () => {
+export default function Settings() {
   return (
     <DefaultLayout>
       <div className="mx-auto max-w-270">
@@ -317,6 +317,4 @@ const Settings = () => {
       </div>
     </DefaultLayout>
   );
-};
-
-export default Settings;
+}

@@ -1,8 +1,9 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const DropdownMessage = () => {
+export function DropdownMessage() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [notifying, setNotifying] = useState(true);
 
@@ -235,6 +236,4 @@ const DropdownMessage = () => {
       {/* <!-- Dropdown End --> */}
     </li>
   );
-};
-
-export default DropdownMessage;
+}

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { ECommerce, DefaultLayout } from "@/components";
+import { Dashboard, DefaultLayout } from "@/components";
 import { PROJECT_NAME } from "@/constants/consts";
 import { redirect } from "next/navigation";
 
@@ -11,7 +11,7 @@ export default function Home() {
   // if (true) redirect("/signin");
   return (
     <DefaultLayout>
-      <ECommerce />
+      <Dashboard />
     </DefaultLayout>
   );
 }

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: `${PROJECT_NAME} - Buttons`,
 };
 
-const Buttons = () => {
+export default function Buttons() {
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Buttons" />
@@ -471,6 +471,4 @@ const Buttons = () => {
       </div>
     </DefaultLayout>
   );
-};
-
-export default Buttons;
+}

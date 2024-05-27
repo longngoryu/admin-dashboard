@@ -1,22 +1,23 @@
 "use client";
+import { Breadcrumb } from "@/components";
 import {
-  Breadcrumb,
   CheckboxOne,
   CheckboxTwo,
   CheckboxThree,
   CheckboxFour,
   CheckboxFive,
-  SelectGroupTwo,
-} from "@/components";
-import SwitcherFour from "@/components/Switchers/SwitcherFour";
-import SwitcherOne from "@/components/Switchers/SwitcherOne";
-import SwitcherThree from "@/components/Switchers/SwitcherThree";
-import SwitcherTwo from "@/components/Switchers/SwitcherTwo";
-import DatePickerTwo from "@/components/FormElements/DatePicker/DatePickerTwo";
-import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
-import MultiSelect from "@/components/FormElements/MultiSelect";
+} from "@/components/Checkboxes";
+import {
+  SwitcherOne,
+  SwitcherTwo,
+  SwitcherThree,
+  SwitcherFour,
+} from "@/components/Switchers";
+import { DatePickerOne, DatePickerTwo } from "@/components/DatePicker";
+import { SelectGroupTwo } from "@/components/SelectGroup";
+import { MultiSelect } from "./MultiSelect";
 
-export const FormElements = () => {
+export function FormElements() {
   return (
     <>
       <Breadcrumb pageName="FormElements" />
@@ -203,4 +204,6 @@ export const FormElements = () => {
       </div>
     </>
   );
-};
+}
+
+export * from "./MultiSelect";
