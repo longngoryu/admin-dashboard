@@ -1,10 +1,4 @@
-import { Metadata } from "next";
 import { DefaultLayout, Breadcrumb } from "@/components";
-import { PROJECT_NAME } from "@/constants/consts";
-
-export const metadata: Metadata = {
-  title: `${PROJECT_NAME} - Alerts`,
-};
 
 export default function Alerts() {
   return (

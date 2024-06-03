@@ -1,12 +1,6 @@
 import { Breadcrumb, DefaultLayout } from "@/components";
-import { PROJECT_NAME } from "@/constants/consts";
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: `${PROJECT_NAME} - Profile`,
-};
 
 export default function Profile() {
   return (

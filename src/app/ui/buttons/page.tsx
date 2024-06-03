@@ -1,11 +1,5 @@
-import { Metadata } from "next";
 import Link from "next/link";
 import { DefaultLayout, Breadcrumb } from "@/components";
-import { PROJECT_NAME } from "@/constants/consts";
-
-export const metadata: Metadata = {
-  title: `${PROJECT_NAME} - Buttons`,
-};
 
 export default function Buttons() {
   return (

@@ -1,14 +1,16 @@
-import React from "react";
-import { Metadata } from "next";
+"use client";
+import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { PROJECT_NAME } from "@/constants/consts";
-
-export const metadata: Metadata = {
-  title: `${PROJECT_NAME} - Sign In`,
-};
+import { SIGNIN_TITLE } from "@/constants";
+import { usePage } from "@/stores";
 
 export default function SignIn() {
+  const { setTitle } = usePage();
+  useEffect(() => {
+    setTitle(SIGNIN_TITLE);
+  }, [setTitle]);
+
   return (
     <div className="h-screen rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="flex flex-wrap items-center">

@@ -1,13 +1,16 @@
-import { Metadata } from "next";
+"use client";
 import { Dashboard, DefaultLayout } from "@/components";
-import { PROJECT_NAME } from "@/constants/consts";
+import { PAGE_TITLE } from "@/constants";
 import { redirect } from "next/navigation";
-
-export const metadata: Metadata = {
-  title: PROJECT_NAME,
-};
+import { usePage } from "@/stores";
+import { useEffect } from "react";
 
 export default function Home() {
+  const { setTitle } = usePage();
+
+  useEffect(() => {
+    setTitle("");
+  }, [setTitle]);
   // if (true) redirect("/signin");
   return (
     <DefaultLayout>

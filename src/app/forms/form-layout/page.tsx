@@ -1,12 +1,6 @@
-import { Metadata } from "next";
 import Link from "next/link";
 import { DefaultLayout, Breadcrumb } from "@/components";
-import { PROJECT_NAME } from "@/constants/consts";
 import { SelectGroupOne } from "@/components/SelectGroup";
-
-export const metadata: Metadata = {
-  title: `${PROJECT_NAME} - Form Layout`,
-};
 
 const FormLayout = () => {
   return (

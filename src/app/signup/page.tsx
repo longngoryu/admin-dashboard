@@ -1,14 +1,16 @@
-import React from "react";
-import { Metadata } from "next";
+"use client";
+import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { PROJECT_NAME } from "@/constants/consts";
-
-export const metadata: Metadata = {
-  title: `${PROJECT_NAME} - Sign Up`,
-};
+import { SIGNUP_TITLE } from "@/constants";
+import { usePage } from "@/stores";
 
 export default function SignUp() {
+  const { setTitle } = usePage();
+  useEffect(() => {
+    setTitle(SIGNUP_TITLE);
+  }, [setTitle]);
+
   return (
     <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="flex flex-wrap items-center">

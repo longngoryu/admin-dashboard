@@ -1,13 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Metadata } from "next";
 import { DefaultLayout, Breadcrumb } from "@/components";
-import { PROJECT_NAME } from "@/constants/consts";
-
-export const metadata: Metadata = {
-  title: `${PROJECT_NAME} - Sign In`,
-};
 
 const SignIn: React.FC = () => {
   return (

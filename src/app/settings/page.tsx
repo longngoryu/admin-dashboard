@@ -1,11 +1,5 @@
-import { Metadata } from "next";
 import Image from "next/image";
 import { DefaultLayout, Breadcrumb } from "@/components";
-import { PROJECT_NAME } from "@/constants/consts";
-
-export const metadata: Metadata = {
-  title: `${PROJECT_NAME} - Settings`,
-};
 
 export default function Settings() {
   return (
