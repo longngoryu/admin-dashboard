@@ -1,15 +1,51 @@
 "use client";
-import { useEffect } from "react";
+import { FormEvent, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { SIGNIN_TITLE } from "@/constants";
-import { usePage } from "@/stores";
+import { API_SIGNIN, SIGNIN_TITLE } from "@/constants";
+import { usePage, useAuth } from "@/stores";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import { RequestDataSignin, ResponseDataSignin } from "@/types";
 
 export default function SignIn() {
+  const router = useRouter();
   const { setTitle } = usePage();
+  const { signin } = useAuth();
+
   useEffect(() => {
     setTitle(SIGNIN_TITLE);
   }, [setTitle]);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    const param: RequestDataSignin = {
+      email: email?.toString() || "",
+      password: password?.toString() || "",
+      returnSecureToken: true,
+    };
+
+    try {
+      const res = await axios({
+        url: API_SIGNIN,
+        method: "post",
+        data: param,
+      });
+
+      const data: ResponseDataSignin = res.data;
+      if (data) {
+        signin(data);
+        router.push("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="h-screen rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -170,14 +206,20 @@ export default function SignIn() {
               Sign In to TailAdmin
             </h2>
 
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label className="mb-2.5 block font-medium text-black dark:text-white">
+                <label
+                  htmlFor="email"
+                  className="mb-2.5 block font-medium text-black dark:text-white"
+                >
                   Email
                 </label>
                 <div className="relative">
                   <input
+                    id="email"
+                    name="email"
                     type="email"
+                    required
                     placeholder="Enter your email"
                     className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
@@ -203,14 +245,20 @@ export default function SignIn() {
               </div>
 
               <div className="mb-6">
-                <label className="mb-2.5 block font-medium text-black dark:text-white">
-                  Re-type Password
+                <label
+                  htmlFor="password"
+                  className="mb-2.5 block font-medium text-black dark:text-white"
+                >
+                  Password
                 </label>
                 <div className="relative">
                   <input
+                    id="password"
+                    name="password"
                     type="password"
-                    placeholder="6+ Characters, 1 Capital letter"
-                    className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-white outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    required
+                    placeholder="Enter your password"
+                    className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
 
                   <span className="absolute right-4 top-4">

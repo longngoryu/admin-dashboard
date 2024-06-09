@@ -1,2 +1,3 @@
-export * from "./User";
-export * from "./Gift";
+export * from "./user";
+export * from "./gift";
+export * from "./auth";

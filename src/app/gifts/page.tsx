@@ -13,13 +13,9 @@ import {
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { Gift } from "@/types/Gift";
-import { GIFT_TITLE, PAGE_SIZE, PAGE_TITLE } from "@/constants";
-import { usePage } from "@/stores";
-
-const token =
-  "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVkNjE3N2E5Mjg2ZDI1Njg0NTI2OWEzMTM2ZDNmNjY0MjZhNGQ2NDIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vYmVxZXgtODE4MmMiLCJhdWQiOiJiZXFleC04MTgyYyIsImF1dGhfdGltZSI6MTcxNzMzODY2MywidXNlcl9pZCI6IjBnUFhIQW43cXdROGhGcnhLUUcwYVZwTWZLZTIiLCJzdWIiOiIwZ1BYSEFuN3F3UThoRnJ4S1FHMGFWcE1mS2UyIiwiaWF0IjoxNzE3MzM4NjYzLCJleHAiOjE3MTczNDIyNjMsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImFkbWluQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.QvNTlpAiYPm-fJZ_SLw0H4HOmWnfc3G4__TgwAyZqN1FqAzIb7jQbC7J5hu_D0_7FwMa736Y17KeWlwIIVJWjmycr7GtVGjkRMz6i9YSG8xDkBDPqaZ179q1B4Fa4KLUjWdKntB2z1iZaDI1GSzX7S3yWWaT334FJgqVFXzeq1X2yItY03zwPi-fo0F7BQjfmkdGwIU_hw45C-o4mFQwg-W7YkPBv3g03eXK07TvtlNKFyrMJijSDsgxNnBcj3tuhnxpNapCG8DKyNOxPrMf1nO_nO7EI4MvjezMMP1YdOirxkclJKsmqXCWdkmdX7WUsyrCuTjN2w-brH5MBZ-bjg";
-const domain = "https://dev.loyalty-api.beqex.io/api/admin";
+import { Gift } from "@/types/gift";
+import { API_GIFT, GIFT_TITLE, PAGE_SIZE } from "@/constants";
+import { useAuth, usePage } from "@/stores";
 
 interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   editing: boolean;
@@ -92,6 +88,7 @@ const initData: Gift = {
 };
 
 export default function Gifts() {
+  const { userInfo } = useAuth();
   const { setTitle } = usePage();
   useEffect(() => {
     setTitle(GIFT_TITLE);
@@ -123,13 +120,13 @@ export default function Gifts() {
     try {
       const row = (await form.validateFields()) as Gift;
       const res = await axios({
-        url: `${domain}/gifts/${key}`,
         method: "patch",
-        headers: {
-          Accept: "/",
-          Authorization: `Bearer ${token}`,
+        url: API_GIFT,
+        data: {
+          key: key,
+          token: userInfo?.idToken,
+          row: row,
         },
-        data: row,
       });
       setEditingKey("");
       refetch();
@@ -142,24 +139,22 @@ export default function Gifts() {
   const {
     data: giftsData,
     isLoading,
-    isFetching,
     refetch,
   } = useQuery({
     queryKey: ["admin-gifts", pageParams],
     queryFn: async () => {
       const res = await axios({
-        url: `${domain}/gifts`,
-        headers: {
-          Accept: "/",
-          Authorization: `Bearer ${token}`,
-        },
-        params: {
+        url: API_GIFT,
+        method: "post",
+        data: {
           offset: pageParams.offset,
           limit: pageParams.limit,
+          token: userInfo?.idToken,
         },
       });
       return res.data;
     },
+    enabled: !!userInfo,
   });
 
   const columns = [
@@ -259,9 +254,9 @@ export default function Gifts() {
             columns={mergedColumns}
             dataSource={giftsData?.data || []}
             pagination={
-              giftsData?.pagination.totalItem > pageParams.limit && {
+              giftsData?.pagination?.totalItem > pageParams.limit && {
                 pageSize: pageParams.limit,
-                total: giftsData?.pagination.totalItem,
+                total: giftsData?.pagination?.totalItem,
                 onChange: (page) => {
                   setPageParams({ ...pageParams, offset: page - 1 });
                   setEditingKey("");
