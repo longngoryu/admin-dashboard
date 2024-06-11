@@ -1,8 +1,18 @@
-import { Breadcrumb, DefaultLayout } from "@/components";
+"use client";
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Breadcrumb, DefaultLayout } from "@/components";
+
+import { useAuth, usePage } from "@/stores";
+import { PROFILE_TITLE } from "@/constants";
 
 export default function Profile() {
+  const { userInfo } = useAuth();
+  const { setTitle } = usePage();
+  useEffect(() => {
+    setTitle(PROFILE_TITLE);
+  }, [setTitle]);
   return (
     <DefaultLayout>
       <div className="mx-auto max-w-242.5">
@@ -108,9 +118,9 @@ export default function Profile() {
             </div>
             <div className="mt-4">
               <h3 className="mb-1.5 text-2xl font-semibold text-black dark:text-white">
-                Danish Heilium
+                {userInfo?.displayName}
               </h3>
-              <p className="font-medium">Ui/Ux Designer</p>
+              <p className="font-medium">{userInfo?.email}</p>
               <div className="mx-auto mb-5.5 mt-4.5 grid max-w-94 grid-cols-3 rounded-md border border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
                 <div className="flex flex-col items-center justify-center gap-1 border-r border-stroke px-4 dark:border-strokedark xsm:flex-row">
                   <span className="font-semibold text-black dark:text-white">

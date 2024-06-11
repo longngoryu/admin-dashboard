@@ -1,7 +1,15 @@
+"use client";
 import Image from "next/image";
 import { DefaultLayout, Breadcrumb } from "@/components";
+import { usePage } from "@/stores";
+import { useEffect } from "react";
+import { SETTING_TITLE } from "@/constants/setting";
 
 export default function Settings() {
+  const { setTitle } = usePage();
+  useEffect(() => {
+    setTitle(SETTING_TITLE);
+  }, [setTitle]);
   return (
     <DefaultLayout>
       <div className="mx-auto max-w-270">
