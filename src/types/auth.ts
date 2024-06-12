@@ -7,10 +7,17 @@ export type RequestDataSignin = {
 export type ResponseDataSignin = {
   displayName: string;
   email: string;
-  idToken: string;
   kind: string;
   localId: string;
   registered: boolean;
   refreshToken?: string;
   expiresIn?: number;
+};
+
+export type ResponseDataMe = {
+  userId: string;
+  name: string;
+  email: string;
+  authTime?: number;
+  emailVerified?: boolean;
 };

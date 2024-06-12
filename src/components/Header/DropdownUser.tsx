@@ -47,7 +47,7 @@ export function DropdownUser() {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            {userInfo?.displayName}
+            {userInfo?.name}
           </span>
           <span className="text block w-24 truncate text-xs">
             {userInfo?.email}

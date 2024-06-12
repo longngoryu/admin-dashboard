@@ -1,9 +1,9 @@
-import { ResponseDataSignin } from "@/types";
+import { ResponseDataMe } from "@/types";
 import { create } from "zustand";
 
 type AuthStore = {
-  userInfo: ResponseDataSignin | null;
-  signin: (userInfo: ResponseDataSignin) => void;
+  userInfo: ResponseDataMe | null;
+  signin: (userInfo: ResponseDataMe) => void;
   signout: () => void;
 };
 

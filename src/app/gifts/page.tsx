@@ -124,7 +124,6 @@ export default function Gifts() {
         url: API_GIFT,
         data: {
           key: key,
-          token: userInfo?.idToken,
           row: row,
         },
       });
@@ -145,11 +144,10 @@ export default function Gifts() {
     queryFn: async () => {
       const res = await axios({
         url: API_GIFT,
-        method: "post",
-        data: {
+        method: "get",
+        params: {
           offset: pageParams.offset,
           limit: pageParams.limit,
-          token: userInfo?.idToken,
         },
       });
       return res.data;

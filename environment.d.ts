@@ -3,6 +3,6 @@ declare namespace NodeJS {
     readonly DOMAIN: string;
     readonly URL_SIGNIN: string;
     readonly URL_SIGNUP: string;
-    readonly AUTH_SECRET: string;
+    readonly SECRET_KEY: string;
   }
 }
